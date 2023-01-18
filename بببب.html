@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bank - NiceAdmin</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .q {
+      border: solid 20px;
+      border-image: url(/assets/img/0.png) 30 round;
+      direction: rtl;
+      margin-bottom: 1%;
+      text-align: right;
+    }
+
+    .a {
+      border: solid 20px;
+      border-image: url(/assets/img/0.png) 30 round;
+      direction: rtl;
+      text-align: right;
+
+    }
+
+    .ans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10% 1%;
+
+    }
+
+    .qu {
+      margin: 3%;
+    }
+
+    .but1 {
+      border: none;
+      border-radius: 7px;
+      color: white;
+      margin: 1%;
+      display: none;
+    }
+
+    .del {
+      background: red;
+    }
+
+    .edi {
+      background: green;
+    }
+
+    #main {
+      margin: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+
+
+
+  <main id="main" class="main" style="text-align:center;">
+
+    <div class="pagetitle" style="text-align:center;">
+      <h1>Bank - Data</h1>
+    </div><!-- End Page Title -->
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Your Questions</h5>
+
+        <!-- No Labels Form -->
+        <form onchange="get_data()" class="row g-3" id="form" action="#">
+
+          <div class="col-md-4">
+            <select id="inputState" name="class" class="form-select">
+              <option selected value="">الصف</option>
+              <option value="1">الأول الثانوي</option>
+              <option value="2">الثاني الثانوي</option>
+              <option value="3">الثالث الثانوي</option>
+              <option value="1d">الأول الإعدادي</option>
+              <option value="2d">الثاني الإعدادي</option>
+              <option value="3d">الثالث الإعدادي</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="inputState" name="term" class="form-select">
+              <option selected value="">الترم</option>
+              <option value="1">الأول</option>
+              <option value="2">الثاني</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="inputState" name="unit" class="form-select">
+              <option selected value="">الباب</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="inputState" name="lesson" class="form-select">
+              <option selected value="">الدرس</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="inputState" name="difficulty" class="form-select">
+              <option selected value="">الصعوبه</option>
+              <option value="0">سهلة</option>
+              <option value="1">متوسط</option>
+              <option value="2">صعبة</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="type" onchange="select_type(this)" name="type_a" class="form-select">
+              <option selected value="">النوع</option>
+              <option value="choices">اختياري</option>
+              <option value="text">مقالي</option>
+            </select>
+          </div>
+          <div class="text-center">
+            <input type="number" placeholder="id" name="id">
+          </div>
+        </form><!-- End No Labels Form -->
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bank</h5>
+        <!-- Bordered Table -->
+        <button onclick="select_all()">Select All</button>
+        <div class="data" id="data">
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://wa.me/+201017465981">Ahmed ElSaka</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/connect.js"></script>
+  <script>
+    get_data()
+    function select_all() {
+      for (let index = 0; index < dataq.length; index++) {
+        var element = dataq[index];
+        ziad(element.id)
+      }
+      get_data();
+    }
+    var idsz = [];
+    function ziad(id) {
+      if (idsz.indexOf(id) > -1) {
+        idsz.splice(idsz.indexOf(id), 1)
+      } else {
+        idsz[idsz.length] = id;
+      }
+    }
+  </script>
+</body>
+
+</html>
